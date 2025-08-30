@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://b301ce7qysoef"]
+
+[ext_resource type="Script" path="res://Presenter.cs" id="1_1vsd2"]
+[ext_resource type="Texture2D" uid="uid://bw1xhgsyc15w3" path="res://test_backgraund.png" id="2_ycqvb"]
+[ext_resource type="Texture2D" uid="uid://dapwcfrwkvcq0" path="res://Course.png" id="3_iim2w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m58ld"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7fut"]
+font_size = 71
+
+[sub_resource type="LabelSettings" id="LabelSettings_kgeg3"]
+font_size = 51
+
+[sub_resource type="Theme" id="Theme_3jku6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0xy0"]
+bg_color = Color(0.117647, 0.537255, 0.113725, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwbmo"]
+bg_color = Color(0.301961, 1, 0.380392, 0.85098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fl3ey"]
+font_size = 196
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktb8p"]
+font_size = 78
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Presenter" type="Node2D" parent="."]
+script = ExtResource("1_1vsd2")
+
+[node name="ShotOK" type="Button" parent="."]
+offset_left = 542.0
+offset_top = 693.0
+offset_right = 706.0
+offset_bottom = 904.0
+text = "打ったよ！"
+
+[node name="AttackButton" type="Button" parent="."]
+offset_left = 539.0
+offset_top = 691.0
+offset_right = 708.0
+offset_bottom = 901.0
+text = "攻撃"
+icon = SubResource("CompressedTexture2D_m58ld")
+
+[node name="AtkLabel" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 807.0
+offset_right = 391.0
+offset_bottom = 905.0
+text = "攻撃力：10"
+label_settings = SubResource("LabelSettings_u7fut")
+
+[node name="EnemyHpLabel" type="Label" parent="."]
+offset_left = 441.0
+offset_top = -17.0
+offset_right = 723.0
+offset_bottom = 54.0
+text = "Max：1000"
+label_settings = SubResource("LabelSettings_kgeg3")
+
+[node name="TextBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(360, 1096)
+scale = Vector2(1.39, 1.39)
+texture = ExtResource("2_ycqvb")
+
+[node name="AttackBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(266, 858)
+scale = Vector2(1.01531, 0.374687)
+texture = ExtResource("2_ycqvb")
+
+[node name="Course" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1330, -74)
+scale = Vector2(15, 15)
+texture = ExtResource("3_iim2w")
+
+[node name="EnemyHpBar" type="ProgressBar" parent="."]
+offset_left = 32.0
+offset_top = 50.0
+offset_right = 671.0
+offset_bottom = 147.0
+theme = SubResource("Theme_3jku6")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_n0xy0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwbmo")
+step = 1.0
+value = 100.0
+
+[node name="TestX" type="TextEdit" parent="."]
+offset_left = 25.0
+offset_top = 154.0
+offset_right = 335.0
+offset_bottom = 222.0
+
+[node name="TestY" type="TextEdit" parent="."]
+offset_left = 27.0
+offset_top = 244.0
+offset_right = 337.0
+offset_bottom = 312.0
+
+[node name="ClearLabel" type="Label" parent="."]
+offset_left = 40.0
+offset_top = -5.0
+offset_right = 689.0
+offset_bottom = 263.0
+text = "CLEAR!"
+label_settings = SubResource("LabelSettings_fl3ey")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_top = 272.0
+offset_right = 723.0
+offset_bottom = 926.0
+text = "・ゴルフの打数
+　　　　　5打数
+・ボスにかかったターン数
+　　　　　5ターン
+・トータル
+　　　　　1000点"
+label_settings = SubResource("LabelSettings_ktb8p")
